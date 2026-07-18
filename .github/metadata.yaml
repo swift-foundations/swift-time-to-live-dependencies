@@ -1,0 +1,6 @@
+description: Dependency-backed current-instant access for time-to-live policies.
+topics:
+  - foundations
+  - dependencies
+  - time
+  - ttl
