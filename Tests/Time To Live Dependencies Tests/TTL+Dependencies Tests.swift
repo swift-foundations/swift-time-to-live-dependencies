@@ -11,8 +11,9 @@
 
 import Clocks_Dependencies
 import Dependencies_Test_Support
-import Time_To_Live
 import Testing
+import Time_Primitive
+import Time_To_Live
 
 @testable import Time_To_Live_Dependencies
 
@@ -29,7 +30,7 @@ extension `TTL Dependencies Tests`.Unit {
         let test = Clock.Test()
         let clock = Clock.`Any`(test)
         let start = clock.now
-        let policy = TTL<Clock.`Any`<Duration>.Instant>(.seconds(5), from: start)
+        let policy = TTL<Clock.`Any`<Time_Primitive.Duration>.Instant>(.seconds(5), from: start)
 
         withDependencies {
             $0.clock = clock
@@ -46,7 +47,7 @@ extension `TTL Dependencies Tests`.`Edge Case` {
     func `an absent duration remains unexpired`() {
         let test = Clock.Test()
         let clock = Clock.`Any`(test)
-        let policy = TTL<Clock.`Any`<Duration>.Instant>(from: clock.now)
+        let policy = TTL<Clock.`Any`<Time_Primitive.Duration>.Instant>(from: clock.now)
 
         withDependencies {
             $0.clock = clock

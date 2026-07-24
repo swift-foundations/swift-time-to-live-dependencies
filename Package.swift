@@ -32,14 +32,17 @@ let package = Package(
         .package(url: "https://github.com/swift-foundations/swift-time-to-live.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-clocks-dependencies.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-dependencies.git", branch: "main"),
+        .package(url: "https://github.com/swift-primitives/swift-time-primitives.git", branch: "main"),
     ],
     targets: [
         .target(
             name: "Time To Live Dependencies",
             dependencies: [
                 .product(name: "Time To Live", package: "swift-time-to-live"),
+                .product(name: "Time To Live Store", package: "swift-time-to-live"),
                 .product(name: "Clocks Dependencies", package: "swift-clocks-dependencies"),
                 .product(name: "Dependencies", package: "swift-dependencies"),
+                .product(name: "Time Primitive", package: "swift-time-primitives"),
             ]
         ),
         .testTarget(
